@@ -1,5 +1,4 @@
 package calculator;
-
 import camp.nextstep.edu.missionutils.test.NsTest;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +25,10 @@ class ApplicationTest extends NsTest {
 
     @Override
     public void runMain() {
-        Application.main(new String[]{});
+        try {
+            Application.main(new String[]{});   // Application은 package calculator에 유지 OK
+        } catch (java.io.IOException e) {
+            throw new RuntimeException(e);      // 체크 예외를 언체크로 변환
+        }
     }
 }
